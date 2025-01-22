@@ -5,3 +5,4 @@ For importing to Godot 4 you need to do:
 ```
 git clone https://github.com/oscarpavon/jumpb
 ```
+And then just import to Godot with the user interface
