@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8jr357s7o103"]
+
+[ext_resource type="PackedScene" uid="uid://dltxm44wlcvio" path="res://sphere.glb" id="1_8pulh"]
+[ext_resource type="Texture2D" uid="uid://cguto0400glaw" path="res://sphere.png" id="2_veubm"]
+[ext_resource type="Texture2D" uid="uid://cfj60f77tv5oh" path="res://environment/skybox_texture.jpg" id="3_udds0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udds0"]
+transparency = 1
+blend_mode = 4
+cull_mode = 2
+diffuse_mode = 3
+albedo_texture = ExtResource("2_veubm")
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.34
+rim_enabled = true
+refraction_scale = 0.55
+refraction_texture = ExtResource("3_udds0")
+
+[node name="sphere" instance=ExtResource("1_8pulh")]
+
+[node name="Sphere" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_udds0")

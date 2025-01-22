@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://0bhi08ybaf74"]
+
+[ext_resource type="Script" uid="uid://civexb71b63ww" path="res://environment/ramdom_spheres.gd" id="1_tg3a7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kvsbl"]
+size = Vector3(28.8575, 17.2303, 32.3398)
+
+[node name="random_spheres" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_tg3a7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653229, 8.11517, 0.697708)
+shape = SubResource("BoxShape3D_kvsbl")

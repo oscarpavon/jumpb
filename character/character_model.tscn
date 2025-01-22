@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://d233v0gh87qct"]
+
+[ext_resource type="PackedScene" uid="uid://cpd2xlto5rp18" path="res://character/character.glb" id="1_wldta"]
+[ext_resource type="Material" uid="uid://o1snn53gi6ys" path="res://character/toon.material" id="2_av24t"]
+[ext_resource type="Material" uid="uid://dlgl407bfcsq4" path="res://character/eyes.material" id="2_chf46"]
+[ext_resource type="Material" uid="uid://cwk0svkj0pyr6" path="res://character/skin.material" id="3_xbjwc"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r8jhi"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_waqkf"]
+animation = &"jump_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_chf46"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_waqkf"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cepk8"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r8jhi"]
+graph_offset = Vector2(-381.23, 46.9285)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_chf46")
+nodes/Animation/position = Vector2(-320, 100)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_r8jhi")
+"nodes/Animation 2/position" = Vector2(-280, 280)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_waqkf")
+"nodes/Animation 3/position" = Vector2(120, 400)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_waqkf")
+nodes/Blend2/position = Vector2(20, 140)
+nodes/Blend_jump/node = SubResource("AnimationNodeBlend2_cepk8")
+nodes/Blend_jump/position = Vector2(320, 160)
+nodes/output/position = Vector2(540, 120)
+node_connections = [&"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2", &"Blend_jump", 0, &"Blend2", &"Blend_jump", 1, &"Animation 3", &"output", 0, &"Blend_jump"]
+
+[node name="character" instance=ExtResource("1_wldta")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.00126814, 0.00100832, 0.000774945, 0.999998)
+bones/1/rotation = Quaternion(-0.0020954, 0.000874179, -0.00632108, 0.999977)
+bones/2/rotation = Quaternion(-0.0066077, -0.00058488, 0.0148526, 0.999868)
+bones/3/rotation = Quaternion(0.0110255, -0.000649707, -0.00269863, 0.999935)
+bones/4/rotation = Quaternion(0.000968589, 0.00295146, -0.820806, 0.571199)
+bones/5/rotation = Quaternion(-0.0584847, 0.0638011, -0.521698, 0.848729)
+bones/6/rotation = Quaternion(0.245148, 0.0134864, -0.00349716, 0.969386)
+bones/7/rotation = Quaternion(0.084122, -0.00332062, -0.0895744, 0.992416)
+bones/9/rotation = Quaternion(-0.0652768, -0.0133701, -0.000983399, 0.997777)
+bones/10/rotation = Quaternion(0.00042681, -0.00321764, 0.818371, 0.574681)
+bones/11/rotation = Quaternion(0.0785795, 0.0763129, 0.607529, 0.786708)
+bones/12/rotation = Quaternion(0.03684, 0.0447881, -0.114519, 0.991727)
+bones/13/rotation = Quaternion(0.059359, -0.0076234, 0.125177, 0.990328)
+bones/14/rotation = Quaternion(-0.0208697, 0.00343378, -0.692702, 0.720914)
+bones/15/rotation = Quaternion(-0.0266618, 0.00622984, -0.706981, 0.706702)
+bones/16/rotation = Quaternion(0.0229975, -0.000307424, -0.0273186, 0.999362)
+bones/18/rotation = Quaternion(0.104987, 0.0224778, 0.695109, 0.710841)
+bones/19/rotation = Quaternion(0.0911992, -0.0016015, 0.687377, 0.72055)
+bones/20/rotation = Quaternion(-0.0147471, -0.00260302, 0.0468372, 0.99879)
+bones/21/rotation = Quaternion(0.613896, -4.05204e-05, -0.224452, 0.756804)
+
+[node name="back_pack" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_av24t")
+
+[node name="body" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("2_av24t")
+
+[node name="eyes" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("2_chf46")
+
+[node name="hair" parent="Armature/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("2_av24t")
+
+[node name="skin" parent="Armature/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("3_xbjwc")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_r8jhi")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Blend2/blend_amount = 0.0
+parameters/Blend_jump/blend_amount = 0.0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://mm8ch6kryyom"]
+
+[ext_resource type="Script" uid="uid://d1vmtooijnpog" path="res://sphere_move2.gd" id="1_kji1j"]
+[ext_resource type="PackedScene" uid="uid://c8jr357s7o103" path="res://sphere.tscn" id="2_nrwk8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_587bc"]
+radius = 4.63815
+
+[node name="sphere_move" type="Node3D"]
+script = ExtResource("1_kji1j")
+
+[node name="sphere2" parent="." instance=ExtResource("2_nrwk8")]
+transform = Transform3D(1.54564, 0, 0, 0, 1.54564, 0, 0, 0, 1.54564, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.53128, 0, 0, 0, 1.53128, 0, 0, 0, 1.53128, 0, 0, 0)
+shape = SubResource("SphereShape3D_587bc")

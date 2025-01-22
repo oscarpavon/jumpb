@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bftxj5twxng22"]
+
+[ext_resource type="PackedScene" uid="uid://buqlbrp8xxu20" path="res://environment/tree1.glb" id="1_plh0n"]
+[ext_resource type="Material" uid="uid://diukqluhic02n" path="res://environment/tree.material" id="2_u7t85"]
+
+[node name="tree1" instance=ExtResource("1_plh0n")]
+
+[node name="Icosphere_002" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_u7t85")

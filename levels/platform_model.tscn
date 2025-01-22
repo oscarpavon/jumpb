@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://di6b067b1pg8m"]
+
+[ext_resource type="PackedScene" uid="uid://gtp1d6wdsl6a" path="res://environment/platform.glb" id="1_3pmpx"]
+[ext_resource type="Material" uid="uid://c78u2moefv6ij" path="res://environment/platform.material" id="2_jeq27"]
+
+[node name="platform" instance=ExtResource("1_3pmpx")]
+
+[node name="platform1" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_jeq27")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c27j7e6v7aebf"]
+
+[ext_resource type="PackedScene" uid="uid://di6b067b1pg8m" path="res://levels/platform_model.tscn" id="1_axfyg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sw6rm"]
+
+[node name="platform" type="Node3D"]
+
+[node name="platform2" parent="." instance=ExtResource("1_axfyg")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 20, 0, -2.5101, 0)
+shape = SubResource("BoxShape3D_sw6rm")
