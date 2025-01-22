@@ -1,4 +1,6 @@
 # How to make the game
+## This is jumpb
+![image](images/jumpb1.png)
 
 ![image](images/1.jpg)
 ![image](images/2.jpg)
